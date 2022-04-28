@@ -48,34 +48,48 @@ const BookCard = () => {
 
 
     return (
-        <div className='h-screen' >
-            <div className=' mx-16 py-10 ' >
-                <div>
-                    <h1 className='text-2xl font-bold text-left my-2 mb-6' >{ category }</h1>
+      <div >
+        <div className=" mx-2 sm:mx-10 py-10 ">
+          <div>
+            <h1 className="text-2xl font-bold text-left my-2 mb-6">
+              {category}
+            </h1>
+          </div>
+          <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 ">
+            {bookInfo.map((eachBook) => (
+              <div
+                onClick={() => {
+                  handleBook(eachBook.bookId);
+                }}
+                key={eachBook.bookId}
+                    // className=" shadow-md hover:shadow-2xl transition-all duration-300 ease-in-out bg-slate-100 rounded-md p-4"
+                    
+                className=" hover:-translate-y-5 shadow-md hover:shadow-2xl scale-95 hover:scale-100 transition-all duration-300 ease-in-out bg-slate-100 rounded-md p-4 relative "
+              >
+                <div className="flex justify-center items-center rounded-xl">
+                  <div className="p-5">
+                    <img
+                      height="240px"
+                      width="150px"
+                      src={eachBook.bookImg}
+                      alt={eachBook.bookTitle}
+                    />
+                  </div>
                 </div>
-                <div className=' grid sm:grid-cols-2 md:grid-cols-4 gap-4 ' >
-                    {
-                    bookInfo.map((eachBook)=>(<div onClick={ ()=>{ handleBook( eachBook.bookId ) }} key={eachBook.bookId} className=' hover:-translate-y-5 shadow-md hover:shadow-2xl scale-95 hover:scale-100 transition-all duration-300 ease-in-out bg-slate-100 rounded-md p-4 relative ' >
-                        <div className='flex justify-center items-center rounded-xl' >
-
-                            <div className='p-5' >
-                                <img height='240px' width='150px' src={ eachBook.bookImg } alt={ eachBook.bookTitle } />
-                            </div>
-
-                        </div>
-                        <div className=' mx-2' >
-                            <h1 className='text-lg font-bold truncate ' >{ eachBook.bookTitle }</h1>
-                            <p>{ eachBook.bookAuthor }</p>
-                        </div>
-                        <div className='absolute top-2 rounded-full right-2 px-3 bg-yellow-300 text-white ' >
-                            <p className='text-sm' > ৳ {eachBook.bookPrice}</p>
-                        </div>
-
-                    </div>))
-                    }
+                <div className=" mx-2">
+                  <h1 className="text-lg font-bold truncate ">
+                    {eachBook.bookTitle}
+                  </h1>
+                  <p>{eachBook.bookAuthor}</p>
                 </div>
-            </div>
+                <div className="absolute top-2 rounded-full right-2 px-3 bg-yellow-300 text-white ">
+                  <p className="text-sm"> ৳ {eachBook.bookPrice}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
+      </div>
     );
 };
 

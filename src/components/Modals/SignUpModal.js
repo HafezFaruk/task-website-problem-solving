@@ -5,8 +5,9 @@ import useFirebase from "../Hooks/useFirebase";
 
 const SignUpModal = ({ setShowSignUp, setShowLogin }) => {
   const [signUpData, setSignUpData] = useState({});
-  const { registrationUser, isLoading, authNotice, setAuthNotice } =
+  const { registrationUser, isLoading, authNotice,   } =
     useFirebase();
+  
 
   // function for geting input value from the user for signup
   const getData = (e) => {
@@ -23,23 +24,23 @@ const SignUpModal = ({ setShowSignUp, setShowLogin }) => {
     if (signUpData.password === signUpData.conPassword) {
       // checking both password (password and confirmed password )
       registrationUser(signUpData.emailAdd, signUpData.password); // gegistration user with firebase
+      
     } else {
       console.log("please confirm password again");
       alert("please confirm password again");
     }
-    //   setShowSignUp(false)
+      setShowSignUp(false)
     e.preventDefault();
     e.target.reset();
   };
 
-  const handleToggle = () => {
-    setShowSignUp(false);
-    setShowLogin(true);
-  };
 
   return (
     <>
-      <div className="bg-black bg-opacity-70 absolute inset-0 h-screen flex justify-center items-center ">
+      <div
+        tyle={{ zIndex: "3" }}
+        className="bg-black bg-opacity-70 absolute inset-0 h-screen flex justify-center items-center "
+      >
         <div
           style={{ height: "100%" }}
           className="overflow-auto rounded-lg w-full flex justify-center items-center "
@@ -197,6 +198,9 @@ const SignUpModal = ({ setShowSignUp, setShowLogin }) => {
                 <div className=" flex justify-start items-center w-full  ">
                   <button
                     type="submit"
+                    onClick={() => {
+                      setShowSignUp(false);
+                    }}
                     className=" text-white rounded px-3 mt-3 py-1 hover:bg-yellow-400 bg-yellow-300 transition-all duration-200 ease-linear w-full "
                   >
                     {isLoading ? (
@@ -209,8 +213,8 @@ const SignUpModal = ({ setShowSignUp, setShowLogin }) => {
 
                 <div className="border-t-2 pt-6 mt-6">
                   <p>
-                    ইতোমধ্যে বিসিএস জয়যাত্রা ব্যবহারকারী ?{" "}
-                    <Link to="signUp" onClick={handleToggle} className="text-yellow-300">
+                    ইতোমধ্যে বিসিএস জয়যাত্রা ব্যবহারকারী ?
+                    <Link to="/login" className="text-yellow-300 ml-2">
                       লগ-ইন
                     </Link>
                   </p>
@@ -218,10 +222,10 @@ const SignUpModal = ({ setShowSignUp, setShowLogin }) => {
               </form>
 
               <div className="flex justify-end mr-4 mb-4">
-                <Link to="/"
+                <Link
+                  to="/"
                   onClick={() => {
                     setShowSignUp(false);
-                    setAuthNotice(0);
                   }}
                   className=" px-4 transition-all duration-200 ease-linear hover:text-red-500 font-black text-black"
                 >

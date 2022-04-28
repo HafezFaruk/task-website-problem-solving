@@ -3,11 +3,18 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import useFirebase from "../Hooks/useFirebase";
 
-const LoginModal = ({ setShowLogin, setShowSignUp }) => {
-  const { LoginUser, resetPassword, isLoading, authNotice, setAuthNotice } =
-    useFirebase();
+const LoginModal = ({ setShowLogin, setShowSignUp,  }) => {
+  const {
+    LoginUser,
+    resetPassword,
+    isLoading,
+    authNotice,
+    setAuthNotice,
+    
+  } = useFirebase();
+  
   const [loginInfo, setLoginInfo] = useState({});
-
+ 
   // getting user login information
   const getLoninData = (e) => {
     const propertyName = e.target.name;
@@ -35,20 +42,20 @@ const LoginModal = ({ setShowLogin, setShowSignUp }) => {
     }
   };
 
-  const handleToggle = () => {
-    setShowLogin(false);
-    setShowSignUp(true);
-  };
+  // const handleToggle = () => {
+  //   setShowLogin(false);
+  //   setShowSignUp(true);
+  // };
 
   return (
     <>
-      <div className="bg-black bg-opacity-70 absolute inset-0 h-screen flex justify-center items-center ">
+      <div style={{zIndex: "4"}} className="bg-black bg-opacity-70 absolute inset-0 h-screen flex justify-center items-center ">
         <div
           style={{ height: "100%" }}
           className="overflow-auto rounded-lg w-full flex justify-center items-center "
         >
           <div
-            style={{ width: "500px" }}
+            // style={{ width: "500px" }}
             className="flex rounded-lg mx-auto justify-center items-center bg-white "
           >
             {/* modal body ==================== */}
@@ -169,6 +176,9 @@ const LoginModal = ({ setShowLogin, setShowSignUp }) => {
                   <div className=" flex justify-start items-baseline w-full ">
                     <button
                       type="submit"
+                      onClick={() => {
+                        setShowLogin(false);
+                      }}
                       className=" text-white rounded px-3 mt-3 py-1 hover:bg-yellow-400 bg-yellow-300 transition-all duration-200 ease-linear w-full "
                     >
                       {isLoading ? (
@@ -180,12 +190,12 @@ const LoginModal = ({ setShowLogin, setShowSignUp }) => {
                   </div>
 
                   <div className="border-t-2 pt-6 mt-6">
-                    {/* <p>বিসিএস জয়যাত্রায় নতুন ? <NavLink to='/signUp' className='text-yellow-300 cursor-pointer' >এখন সাইন আপ করুন</NavLink> </p> */}
+                    
                     <p>
                       বিসিএস জয়যাত্রায় নতুন ?{" "}
-                                          <Link
-                                              to="/login"
-                        onClick={handleToggle}
+                      <Link
+                        to="/signUp"
+                        // onClick={handleToggle}
                         className="text-yellow-300 cursor-pointer"
                       >
                         সাইন আপ করুন
@@ -194,7 +204,8 @@ const LoginModal = ({ setShowLogin, setShowSignUp }) => {
                   </div>
                 </form>
                 <div className="flex justify-end mr-4 mb-4">
-                  <Link to="/"
+                  <Link
+                    to="/"
                     onClick={() => {
                       setShowLogin(false);
                       setAuthNotice(0);

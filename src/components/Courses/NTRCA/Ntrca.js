@@ -1,18 +1,17 @@
 import React from 'react';
-import coursesData from '../../Shared/cardData';
-import Courses from '../../Shared/Courses';
+
 
 const Ntrca = () => {
 
-    const headingText ='আমাদের পেইড কোর্স';
-    const headingText2 ='আমাদের ফ্রি কোর্স';
-    const paragraphText = ''
+
 
     return (
-        <div style={{ marginTop: '100px'}} >
-            <Courses heText={ headingText } pgText={ paragraphText } cardObj={ coursesData } />
-            <Courses heText={ headingText2 } pgText={ paragraphText } cardObj={ coursesData } />
-        </div>
+      <div >
+        <h1 className="text-xl my-48">
+          নিবন্ধন প্রস্তুতি কোর্সটি প্রক্রিয়াধীন প্রাতিষ্ঠানিক ভাবে
+          কাজ চলছে অতি দ্রুত ওয়েবসাইটে আপলোড হবে
+        </h1>
+      </div>
     );
 };
 

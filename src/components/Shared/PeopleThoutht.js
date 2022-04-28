@@ -41,22 +41,27 @@ const PeopleThoutht = () => {
 
 
     return (
-        <div style={{marginTop: '120px'}} className='flex h-screen pt-4' >
+        <div style={{marginTop: '120px'}} className='flex pt-4' >
 
             <div className='' >
 
                 <div>
                     <p className='text-sm' >Testimonials</p>
-                    <h1 className='text-3xl font-black' >What Poeple Think <span className='text-yellow-400' >About Our Book</span></h1><br /><br />
+                    <h1 className='text-md sm:text-3xl font-black' >What Poeple Think <span className='text-yellow-400' >About Our Book</span></h1><br /><br />
                 </div>
                 
-                <div className='flex justify-center items-end' >
+                <div className='sm:flex justify-center sm:items-end' >
                     {/* comment content  */}
-                    <div style={{ backgroundImage: `url(${Vector})`, backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }} className=' w-4/6 px-24 py-16 shadow-xl shadow-pink-100 rounded flex flex-col justify-center items-center' >
+                    <div style={{ backgroundImage: `url(${Vector})`, backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}
+                        
+                        className=' sm:w-4/6 px-2 sm:px-5 lg:px-24 py-16 shadow-xl shadow-pink-100 rounded flex flex-col justify-center items-center'
+                    
+                    >
                         <div style={{ height: '84px', width: '84px'}} className='rounded-full overflow-hidden' >
                             <img src={selecCom.imgUrl} width='84px' alt="customers" />
                         </div><br />
-                        <p className='' >{selecCom.comments}</p><br />
+                        <p className='w-full' >{selecCom.comments}</p>
+                        <br />
 
                         <h1 className='text-yellow-300 font-black text-xl' >{selecCom.name}</h1>
                         <h3 className=' ' >{selecCom.position}</h3>
@@ -65,7 +70,11 @@ const PeopleThoutht = () => {
                     <div className=' h-full mx-5' >
 
                         {pComments.map((eachItem)=>(
-                        <div key={eachItem.id} onClick={()=>{peopleComment(eachItem.id)}} style={{ width: '56px', height: '56px' }}  className={`rounded-full overflow-hidden my-2 border-2 ${eachItem.id === selecCom.id && 'border-2 border-yellow-300' }`} >
+                            <div key={eachItem.id} onClick={() => { peopleComment(eachItem.id) }}
+                                style={{ width: '56px', height: '56px' }}
+                                className={`rounded-full overflow-hidden my-2 border-2 ${eachItem.id === selecCom.id && 'border-2 border-yellow-300'}`}
+                                // className={`rounded-full overflow-hidden my-2 border-2 ${eachItem.id === selecCom.id && 'border-2 border-yellow-300'}`}
+                            >
                             <img src={ eachItem.imgUrl } width='56px' height='56px' alt="customers" />
                         </div>))}
 

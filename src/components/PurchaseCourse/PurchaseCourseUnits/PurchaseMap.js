@@ -2,8 +2,8 @@ import React from 'react';
 
 const PurchaseMap = () => {
     return (
-        <div className='pt-5 ' >
-            <div className=' flex justify-between items-center w-2/6 m-auto ' >
+        <div className='pt-5 mx-2  sm:mx-0' >
+            <div className=' flex justify-between items-center sm:w-2/6 m-auto ' >
                 <div style={{ width: '30px', height: '30px'}} className=' '>
                     <div style={{ width: '30px', height: '30px', backgroundColor: '#F0AC01', borderColor: '#F0AC01'}} className='border-2 rounded-full text-white border-green-500' >&#10003;</div>
                 </div>

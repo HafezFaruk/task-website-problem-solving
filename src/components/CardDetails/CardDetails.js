@@ -25,34 +25,35 @@ const CardDetails = () => {
 
 
     return (
-        <div style={{ marginTop: '100px'}} className='' >
-
-            <div className='md:mx-24 sm:mx-14' >
-                <div className='flex justify-around md:flex-row sm:flex-col-reverse w-full pt-3 ' >
-                    <div className=' p-6 md:w-3/5 sm:w-full ' >
-                        <TitleDet selObj={selectedObj} />
-                        <Instructor selObj={selectedObj}  />
-                        <LearningPoints selObj={selectedObj}  />
-                        <CourseSyllabus selObj={selectedObj} />
-                        <PaymentMeth />
-                        <StudentsComm />
-                        <CourseReq />
-                        <FAQs/>
-                    </div>
-
-                    {/* position: sticky, top: 0px - is not working */}
-                    <div className='md:sticky top-0' >
-                        <VideoCard selObj={selectedObj}  />
-                    </div>
-                </div>
+      <div style={{ marginTop: "100px" }} className="mx-2 sm:mx-14">
+        <div>
+          <div className="grid grid-cols-12 gap-6 pt-3">
+            <div className="col-span-12 md:col-span-7 lg:col-span-7 xl:col-span-7 ">
+              <TitleDet selObj={selectedObj} />
+              <Instructor selObj={selectedObj} />
+              <LearningPoints selObj={selectedObj} />
+              <CourseSyllabus selObj={selectedObj} />
+              <PaymentMeth />
+              <StudentsComm />
+              <CourseReq />
+              <FAQs />
             </div>
 
-
-            <div className='' >
-                <Courses heText={ headingText } pgText={ paragraphText } cardObj={ coursesData } />
+            {/* position: sticky, top: 0px - is not working */}
+            <div className="md:sticky top-0 col-span-12 md:col-span-5 lg:col-span-5 xl:col-span-5">
+              <VideoCard selObj={selectedObj} />
             </div>
-
+          </div>
         </div>
+
+        <div className="">
+          <Courses
+            heText={headingText}
+            pgText={paragraphText}
+            cardObj={coursesData}
+          />
+        </div>
+      </div>
     );
 };
 

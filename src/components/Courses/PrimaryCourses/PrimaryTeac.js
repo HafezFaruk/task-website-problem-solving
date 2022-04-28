@@ -1,18 +1,19 @@
 import React from 'react';
-import coursesData from '../../Shared/cardData';
-import Courses from '../../Shared/Courses';
+
 
 const PrimaryTeac = () => {
 
-    const headingText ='আমাদের পেইড কোর্স';
-    const headingText2 ='আমাদের ফ্রি কোর্স';
-    const paragraphText = ''
+
 
     return (
-        <div style={{ marginTop: '100px'}} >
-            <Courses heText={ headingText } pgText={ paragraphText } cardObj={ coursesData } />
-            <Courses heText={ headingText2 } pgText={ paragraphText } cardObj={ coursesData } />
+      <>
+        <div>
+          <h1 className="text-black sm:text-4xl text-xl mx-10  my-48">
+            প্রাথমিক শিক্ষক নিবন্ধন প্রস্তুতি কোর্সটি প্রক্রিয়াধীন
+            প্রাতিষ্ঠানিক ভাবে কাজ চলছে অতি দ্রুত ওয়েবসাইটে আপলোড হবে
+          </h1>
         </div>
+      </>
     );
 };
 

@@ -16,6 +16,7 @@ import ThiredFourthLavel from './components/Courses/ThiredFourthLavel/ThiredFour
 import LoginModal from './components/Modals/LoginModal';
 import SignUpModal from './components/Modals/SignUpModal';
 import Notice from './components/Notice/Notice';
+import AllCourses from './components/AllCourses/AllCourses.js';
 
 function App() {
   return (
@@ -27,7 +28,11 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
+          {/* All Courses */}
+
+          <Route path="/allCourses" element={<AllCourses />} />
           <Route path="/bcs" element={<Bcs />} />
+
           <Route path="/primTeac" element={<PrimaryTeac />} />
           <Route path="/ntrca" element={<Ntrca />} />
           <Route path="/noticeBoard" element={<Notice />} />
@@ -35,7 +40,6 @@ function App() {
           <Route path="/thiredFourthLavel" element={<ThiredFourthLavel />} />
           <Route path="/singleCourse" element={<SingleCourse />} />
           <Route path="/homeTwo" element={<HomeTwo />} />
-
           {/* courses details and purchase page  */}
           <Route path="/:course/det/:objectId" element={<CardDetails />} />
           {/* <Route path='/det/:objectId' element={ <CardDetails/> } /> */}

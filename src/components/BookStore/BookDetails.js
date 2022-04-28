@@ -19,25 +19,25 @@ const BookDetails = () => {
 
 
     return (
-        <div style={{ marginTop: '110px' }} className=' h-screen ' >
+        <div style={{ marginTop: '110px' }}  >
 
             <div className='md:mx-16 sm:mx-8' >
-                <div className=' w-full relative flex sm:flex-col-reverse md:flex-row ' >
+                <div className=' w-full relative sm:flex ' >
                     
                     <div className=' md:w-7/12 sm:w-full ' >
                         <BookDetailsText />
                     </div>
 
                     {/* book img card ------------------- */}
-                    <div className='md:w-5/12 sm:w-full sm:mb-4'>
-                        <div className='flex flex-col w-full  m-2 rounded-lg shadow-xl ' >
+                    <div className='md:w-5/12 sm:w-full sm:mb-4 mx-2 sm:mx-0'>
+                        <div className='flex flex-col m-2 rounded-lg shadow-xl ' >
 
                             {/* book image  */}
                             <div className=' flex p-4  ' >
-                                <div className='w-6/12' >
+                                <div className='sm:w-6/12' >
                                     <img width='100%' className='rounded-md' src={ selBook.bookImg } alt="book" />
                                 </div>
-                                <div className='w-6/12 my-auto' >
+                                <div className='sm:w-6/12 my-auto' >
                                     <div className='' >
 
                                         <div className='mx-4 my-2 flex' >
