@@ -1,11 +1,10 @@
 import React from 'react';
+import FAQs from '../CardDetails/DetailsUnit/FAQs.js';
 
 const Notice = () => {
     return (
-      <div style={{ marginTop: "200px" }}>
-        <h1 className="text-black text-4xl h-[100px]">
-          নোটিশ বোর্ড তৈরি করার কাজ চলতেছে{" "}
-        </h1>
+      <div className='mx-2 sm:mx-14 my-48'>
+        <FAQs/>
       </div>
     );
 };

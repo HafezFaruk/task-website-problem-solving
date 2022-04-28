@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import useFirebase from "../Hooks/useFirebase.js";
 import logo from "../images/logo.png";
-import LoginModal from "../Modals/LoginModal";
-import SignUpModal from "../Modals/SignUpModal";
+
 
 const NavBar = () => {
   const [showLogin, setShowLogin] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
-  const { logOut, currentUser } = useFirebase();
-  const [myCss, setMyCss] = useState(false);
+  const { handelLogOut, currentUser } = useFirebase();
+ 
+console.log(handelLogOut);
 
 
   return (
@@ -312,6 +312,21 @@ const NavBar = () => {
                   >
                     লগ-ইন
                   </Link>
+                  {/* {currentUser.email ? (
+                    <Link
+                      to="/login"
+                      onClick={() => {
+                        setShowLogin(true);
+                      }}
+                      className="mx-6 truncate"
+                    >
+                      লগ-ইন
+                    </Link>
+                  ) : (
+                    <button onClick={handelLogOut} className="mx-6 truncate">
+                      Log Out
+                    </button>
+                  )} */}
                   <Link
                     to="/signUp"
                     onClick={() => {
@@ -323,32 +338,6 @@ const NavBar = () => {
                     রেজিস্টার
                   </Link>
                 </div>
-                {/* <div className=" md:mr-14">
-                      {!currentUser ? (
-                        <Link
-                          to="/login"
-                          onClick={() => {
-                            setShowLogin(true);
-                          }}
-                          className="mx-6 truncate"
-                        >
-                          লগ-ইন
-                        </Link>
-                      ) : (
-                        <button onClick={logOut}>Logout</button>
-                      )}
-                      <Link
-                        to="/signUp"
-                        onClick={() => {
-                          setShowSignUp(true);
-                        }}
-                        c
-                        style={{ backgroundColor: "#F0AC01" }}
-                        className=" truncate py-1 px-2 rounded text-white  "
-                      >
-                        রেজিস্টার
-                      </Link>
-                    </div> */}
               </div>
             </div>
           </div>

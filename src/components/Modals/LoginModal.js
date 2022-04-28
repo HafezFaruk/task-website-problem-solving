@@ -3,13 +3,14 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import useFirebase from "../Hooks/useFirebase";
 
-const LoginModal = ({ setShowLogin, setShowSignUp,  }) => {
+const LoginModal = ({ setShowLogin, setShowSignUp, }) => {
+  // const handleClose = () => setShowSignUp(false);
   const {
     LoginUser,
     resetPassword,
     isLoading,
     authNotice,
-    setAuthNotice,
+    // setAuthNotice,
     
   } = useFirebase();
   
@@ -42,14 +43,14 @@ const LoginModal = ({ setShowLogin, setShowSignUp,  }) => {
     }
   };
 
-  // const handleToggle = () => {
-  //   setShowLogin(false);
-  //   setShowSignUp(true);
-  // };
+  
 
   return (
     <>
-      <div style={{zIndex: "4"}} className="bg-black bg-opacity-70 absolute inset-0 h-screen flex justify-center items-center ">
+      <div
+        style={{ zIndex: "4" }}
+        className="bg-black bg-opacity-70 absolute inset-0 h-screen flex justify-center items-center "
+      >
         <div
           style={{ height: "100%" }}
           className="overflow-auto rounded-lg w-full flex justify-center items-center "
@@ -63,10 +64,9 @@ const LoginModal = ({ setShowLogin, setShowSignUp,  }) => {
             <div className=" flex justify-center items-center ">
               <div
                 style={{
-                  width: "500px",
                   backgroundColor: "rgba(240, 172, 1, 0.05)",
                 }}
-                className=" rounded pt-10 w-14 "
+                className=" rounded pt-10 sm:w-[500px]"
               >
                 <h1 className="text-2xl font-black">
                   আপনার অ্যাকাউন্টে{" "}
@@ -174,42 +174,52 @@ const LoginModal = ({ setShowLogin, setShowSignUp,  }) => {
                     ))}
 
                   <div className=" flex justify-start items-baseline w-full ">
-                    <button
-                      type="submit"
-                      onClick={() => {
-                        setShowLogin(false);
-                      }}
-                      className=" text-white rounded px-3 mt-3 py-1 hover:bg-yellow-400 bg-yellow-300 transition-all duration-200 ease-linear w-full "
-                    >
-                      {isLoading ? (
-                        <CircularProgress size={21} color="secondary" />
-                      ) : (
-                        "Log in"
-                      )}
-                    </button>
-                  </div>
-
-                  <div className="border-t-2 pt-6 mt-6">
-                    
-                    <p>
-                      বিসিএস জয়যাত্রায় নতুন ?{" "}
-                      <Link
-                        to="/signUp"
-                        // onClick={handleToggle}
-                        className="text-yellow-300 cursor-pointer"
+                
+                      <button
+                        type="submit"
+                        onClick={() => {
+                          setShowSignUp(true);
+                        }}
+                        className=" text-white rounded px-3 mt-3 py-1 hover:bg-yellow-400 bg-yellow-300 transition-all duration-200 ease-linear w-full "
                       >
-                        সাইন আপ করুন
-                      </Link>
-                    </p>
+                        {isLoading ? (
+                          <CircularProgress size={21} color="secondary" />
+                        ) : (
+                          "Log in"
+                        )}
+                      </button>
+                  
                   </div>
                 </form>
+                <div className="border-t-2 pt-6 mt-6">
+                  {/* {!user?.displayName ? (
+                    <button
+                      onClick={handleGoogleLogin}
+                      className="btn btn-success text-white"
+                    >
+                      Google LogIn
+                    </button>
+                  ) : (
+                    <button
+                      onClick={logOut}
+                      className="btn btn-success mt-3 text-white"
+                    >
+                      Log Out
+                    </button>
+                  )} */}
+                  <p>
+                    বিসিএস জয়যাত্রায় নতুন ?{" "}
+                    <Link
+                      to="/signUp"
+                      className="text-yellow-300 cursor-pointer"
+                    >
+                      সাইন আপ করুন
+                    </Link>
+                  </p>
+                </div>
                 <div className="flex justify-end mr-4 mb-4">
                   <Link
                     to="/"
-                    onClick={() => {
-                      setShowLogin(false);
-                      setAuthNotice(0);
-                    }}
                     className="px-4 font-black text-black hover:text-red-500 "
                   >
                     Cancel

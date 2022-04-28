@@ -5,7 +5,7 @@ import useFirebase from "../Hooks/useFirebase";
 
 const SignUpModal = ({ setShowSignUp, setShowLogin }) => {
   const [signUpData, setSignUpData] = useState({});
-  const { registrationUser, isLoading, authNotice,   } =
+  const { registrationUser, isLoading, authNotice, setIsLoading } =
     useFirebase();
   
 
@@ -29,34 +29,30 @@ const SignUpModal = ({ setShowSignUp, setShowLogin }) => {
       console.log("please confirm password again");
       alert("please confirm password again");
     }
-      setShowSignUp(false)
-    e.preventDefault();
+    setShowSignUp(false)
     e.target.reset();
+    e.preventDefault();
   };
 
 
   return (
     <>
       <div
-        tyle={{ zIndex: "3" }}
+        style={{ zIndex: "3" }}
         className="bg-black bg-opacity-70 absolute inset-0 h-screen flex justify-center items-center "
       >
         <div
           style={{ height: "100%" }}
           className="overflow-auto rounded-lg w-full flex justify-center items-center "
         >
-          <div
-            style={{ width: "500px" }}
-            className=" flex rounded-lg mx-auto my-auto justify-center items-center bg-white "
-          >
+          <div className=" flex rounded-lg mx-auto my-auto justify-center items-center bg-white ">
             {/* modal body ==================== */}
 
             <div
               style={{
-                width: "500px",
                 backgroundColor: "rgba(240, 172, 1, 0.05)",
               }}
-              className="rounded pt-10 w-14 "
+              className="rounded pt-10 sm:w-[500px]"
             >
               <h1 className="text-2xl font-black">
                 আপনার অ্যাকাউন্টের জন্য{" "}
@@ -199,7 +195,7 @@ const SignUpModal = ({ setShowSignUp, setShowLogin }) => {
                   <button
                     type="submit"
                     onClick={() => {
-                      setShowSignUp(false);
+                      setIsLoading(false);
                     }}
                     className=" text-white rounded px-3 mt-3 py-1 hover:bg-yellow-400 bg-yellow-300 transition-all duration-200 ease-linear w-full "
                   >
@@ -210,23 +206,18 @@ const SignUpModal = ({ setShowSignUp, setShowLogin }) => {
                     )}
                   </button>
                 </div>
-
-                <div className="border-t-2 pt-6 mt-6">
-                  <p>
-                    ইতোমধ্যে বিসিএস জয়যাত্রা ব্যবহারকারী ?
-                    <Link to="/login" className="text-yellow-300 ml-2">
-                      লগ-ইন
-                    </Link>
-                  </p>
-                </div>
               </form>
-
+              <div className="border-t-2 pt-6 mt-6">
+                <p>
+                  ইতোমধ্যে বিসিএস জয়যাত্রা ব্যবহারকারী ?
+                  <Link to="/login" className="text-yellow-300 ml-2">
+                    লগ-ইন
+                  </Link>
+                </p>
+              </div>
               <div className="flex justify-end mr-4 mb-4">
                 <Link
                   to="/"
-                  onClick={() => {
-                    setShowSignUp(false);
-                  }}
                   className=" px-4 transition-all duration-200 ease-linear hover:text-red-500 font-black text-black"
                 >
                   Cancel

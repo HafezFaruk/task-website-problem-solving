@@ -9,7 +9,7 @@ const Courses = ({ heText, pgText, cardObj }) => {
     const [ blackHeading, setBlackHeading ] = useState('')
     const [ yellowHeading, setyellowHeding ] = useState('')
     const navigate = useNavigate();
-    const params = useParams()
+    const params = useParams();
 
     // font awesome icon --------------------------
     const iCart = <FontAwesomeIcon icon={ faCartPlus } />
@@ -62,8 +62,8 @@ const Courses = ({ heText, pgText, cardObj }) => {
           {/* courses heading and details paragraph  ------------- */}
             {heText && (       
             <h1
-                style={{ fontSize: "2.25rem" }}
-                className={`  ${heText && !pgText && "pb-10"} ${
+               
+                className={` text-2xl sm:text-4xl  ${heText && !pgText && "mt-10"} ${
                 heText && pgText && "pb-4"
               } `}
             >

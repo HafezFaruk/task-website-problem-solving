@@ -17,8 +17,9 @@ const useFirebase = () => {
   const [currentUser, setCurrentUser] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [authNotice, setAuthNotice] = useState(0);
-    // const [userField, setUserField] = useState();
-    // console.log(userField?.email);
+
+  
+  
   //registering new user into the application
   const registrationUser = (email, password) => {
     setIsLoading(true);
@@ -29,7 +30,7 @@ const useFirebase = () => {
           
           const user = userCredential.user;
           console.log(user);
-          setCurrentUser(user);
+        
         
       })
 
@@ -53,7 +54,7 @@ const useFirebase = () => {
           console.log(user.email);
            setCurrentUser(user);
         setCurrentUser({ currentUser: user.email });
-
+   
         if (willRemember) {
           alert("will remember the user");
           localStorage.setItem(
@@ -92,7 +93,7 @@ const useFirebase = () => {
       });
   };
 
-  console.log(currentUser);
+  // console.log(currentUser);
 
   //current user observer =========================
   useEffect(() => {
@@ -110,10 +111,11 @@ const useFirebase = () => {
     return () => unsubscribed;
   }, [auth]);
 
-  const logOut = () => {
+  const handelLogOut = () => {
     signOut(auth)
       .then(() => {
         setCurrentUser({});
+       
       })
       .catch((error) => {});
   };
@@ -125,8 +127,9 @@ const useFirebase = () => {
     LoginUser,
     resetPassword,
     setAuthNotice,
-    logOut,
+    handelLogOut,
     currentUser,
+    setCurrentUser,
     isLoading,
     authNotice,
   };
